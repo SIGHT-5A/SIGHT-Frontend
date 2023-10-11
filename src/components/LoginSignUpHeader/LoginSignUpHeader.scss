@@ -1,0 +1,13 @@
+.Login-SignUp-Header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 32px;
+    img{
+        width: 60px;
+        height: 60px;
+    }
+    h1{
+        font-weight: 600;
+    }
+}
