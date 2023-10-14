@@ -1,9 +1,12 @@
 import React from 'react'
 import "./EventsPage.scss"
+import Footer from '../../../components/Footer/Footer'
 
 const EventsPage = () => {
   return (
-    <div>EventsPage</div>
+    <div>EventsPage
+      <Footer />
+    </div>
   )
 }
 

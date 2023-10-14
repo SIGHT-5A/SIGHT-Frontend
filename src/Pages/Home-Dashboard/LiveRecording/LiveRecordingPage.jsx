@@ -1,9 +1,12 @@
 import React from 'react'
 import './LiveRecordingPage.scss'
+import Footer from '../../../components/Footer/Footer'
 
 const LiveRecordingPage = () => {
   return (
-    <div>LiveRecordingPage</div>
+    <div>LiveRecordingPage
+      <Footer />
+    </div>
   )
 }
 

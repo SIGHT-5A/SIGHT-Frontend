@@ -2,6 +2,7 @@ import React from 'react'
 import logo from "../../assets/logo.webp"
 import { Link } from 'react-router-dom';
 import "./NotFoundPage.scss"
+import Footer from '../../components/Footer/Footer';
 
 const NotFoundPage = () => {
     return (
@@ -18,6 +19,7 @@ const NotFoundPage = () => {
                 </p>
                 <Link to="/" className='primary-button home-btn'>Back to Home</Link>
             </div>
+            <Footer />
         </>
     )
 }
