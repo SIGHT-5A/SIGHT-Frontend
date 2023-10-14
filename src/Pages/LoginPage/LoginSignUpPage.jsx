@@ -1,8 +1,8 @@
 import React from 'react'
 import "./LoginSignUpPage.scss"
-import LoginSignUpHeader from '../components/LoginSignUpHeader/LoginSignUpHeader'
-import LoginSignUpBody from '../components/LoginSignUpBody/LoginSignUpBody'
-import LoginSignUpFooter from '../components/LoginSignUpFooter/LoginSignUpFooter'
+import LoginSignUpHeader from '../../components/LoginSignUpHeader/LoginSignUpHeader'
+import LoginSignUpBody from '../../components/LoginSignUpBody/LoginSignUpBody'
+import LoginSignUpFooter from '../../components/LoginSignUpFooter/LoginSignUpFooter'
 
 const LoginSignUpPage = () => {
     return (

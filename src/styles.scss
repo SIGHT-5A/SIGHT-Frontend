@@ -11,11 +11,16 @@
     --card-color: #1B1B1F;
     --white: #fff;
     --grey: #777777;
-    --blue: #246bef;
+    --blue: #0052cc;
     --green: #00C852;
     --red: #FF5045;
     --orange: #FFB545;
-    --hover-color: #1955c3;
+    --hover-color: #1668E2;
+}
+
+::selection {
+    color: var(--white);
+    background: var(--blue);
 }
 
 #root,
@@ -30,10 +35,25 @@ body {
 }
 
 button,
-a {
+a,
+span,
+p {
     transition: all 0.3s ease;
 }
 
 a {
     text-decoration: none;
+}
+
+img {
+    pointer-events: none;
+}
+
+.primary-button {
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
 }
