@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Navbar.scss"
 import logo from "../../assets/logo.webp"
 import defaultProfile from "../../assets/default-profile.webp"
@@ -6,10 +6,19 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Dropdown, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const [uncheckedNotifications, setUncheckedNotifications] = useState(10);
+    const [route, setRoute] = useState("/");
+    const location = useLocation();
+    // Function to check if the current URL starts with "/home"
+    useEffect(() => {
+        const isActive = () => {
+            setRoute(location.pathname);
+        };
+        isActive();
+    }, [])
 
     return (
         <div className='my-navbar'>
@@ -19,12 +28,12 @@ const Navbar = () => {
             </div>
             <div className='nav-utils'>
                 <Tippy content={<span>Home</span>} delay={300}>
-                    <NavLink to="/home/overview" activeClassName="active-link">
+                    <NavLink id='home-btn' to="/home/overview" className={route.startsWith('/home') ? "active" : ""}>
                         <i className="fa-solid fa-house outer-fa"></i>
                     </NavLink>
                 </Tippy>
                 <Tippy content={<span>Settings</span>} delay={300}>
-                    <NavLink to="/settings" activeClassName="active-link">
+                    <NavLink to="/settings" >
                         <i className="fa-solid fa-gear outer-fa"></i>
                     </NavLink>
                 </Tippy>
@@ -38,7 +47,7 @@ const Navbar = () => {
                                 <p className='notification-number'></p>
                         }
 
-                        <NavLink to="/notifications" activeClassName="active-link">
+                        <NavLink to="/notifications" >
                             <i className="fa-solid fa-bell outer-fa"></i>
                         </NavLink>
                     </div>
