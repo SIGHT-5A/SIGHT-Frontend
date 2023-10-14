@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.3s ease;
 }
 
 :root {
@@ -15,7 +14,7 @@
     --blue: #246bef;
     --green: #00C852;
     --red: #FF5045;
-    --orange: #FFB545;    
+    --orange: #FFB545;
     --hover-color: #1955c3;
 }
 
@@ -28,6 +27,11 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     line-height: 1.6;
+}
+
+button,
+a {
+    transition: all 0.3s ease;
 }
 
 a {
