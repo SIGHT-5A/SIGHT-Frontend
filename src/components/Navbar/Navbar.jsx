@@ -6,7 +6,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Dropdown, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [uncheckedNotifications, setUncheckedNotifications] = useState(10);
@@ -19,31 +19,32 @@ const Navbar = () => {
             </div>
             <div className='nav-utils'>
                 <Tippy content={<span>Home</span>} delay={300}>
-                    <Link to="/home/overview">
+                    <NavLink to="/home/overview" activeClassName="active-link">
                         <i className="fa-solid fa-house outer-fa"></i>
-                    </Link>
+                    </NavLink>
                 </Tippy>
                 <Tippy content={<span>Settings</span>} delay={300}>
-                    <Link to="/settings">
+                    <NavLink to="/settings" activeClassName="active-link">
                         <i className="fa-solid fa-gear outer-fa"></i>
-                    </Link>
+                    </NavLink>
                 </Tippy>
-                <div className="notification">
-                    {
-                        uncheckedNotifications === 0
-                            ?
-                            <></>
-                            :
-                            <p className='notification-number'></p>
-                    }
-                    <Tippy content={<span>Notifications</span>} delay={300}>
-                        <Link to="/notifications">
+                <Tippy content={<span>Notifications</span>} delay={300}>
+                    <div className="notification">
+                        {
+                            uncheckedNotifications === 0
+                                ?
+                                <></>
+                                :
+                                <p className='notification-number'></p>
+                        }
+
+                        <NavLink to="/notifications" activeClassName="active-link">
                             <i className="fa-solid fa-bell outer-fa"></i>
-                        </Link>
-                    </Tippy>
-                </div>
+                        </NavLink>
+                    </div>
+                </Tippy>
                 <Dropdown>
-                    <Dropdown.Toggle style={{ margin: 6, background: "transparent", paddingLeft: 10, paddingRight: 10, paddingTop: 2, paddingBottom: 2 }} variant="dark">
+                    <Dropdown.Toggle style={{ display: "flex", alignItems: "center", justifyItems: "center", margin: 6, background: "transparent", paddingLeft: 10, paddingRight: 10, paddingTop: 2, paddingBottom: 2 }} variant="dark">
                         <Image className='user-avatar' src={defaultProfile} roundedCircle />
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{ textAlign: 'left', background: "#161b22 !important" }} variant="dark" align="right">
