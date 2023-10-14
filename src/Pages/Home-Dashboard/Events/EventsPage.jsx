@@ -1,10 +1,13 @@
 import React from 'react'
 import "./EventsPage.scss"
 import Footer from '../../../components/Footer/Footer'
+import Navbar from '../../../components/Navbar/Navbar'
 
 const EventsPage = () => {
   return (
-    <div>EventsPage
+    <div>
+      <Navbar />
+      EventsPage
       <Footer />
     </div>
   )
