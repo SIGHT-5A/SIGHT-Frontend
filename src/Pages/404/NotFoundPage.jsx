@@ -3,10 +3,12 @@ import logo from "../../assets/logo.webp"
 import { Link } from 'react-router-dom';
 import "./NotFoundPage.scss"
 import Footer from '../../components/Footer/Footer';
+import LoginSignUpHeader from '../../components/LoginSignUpHeader/LoginSignUpHeader';
 
 const NotFoundPage = () => {
     return (
         <>
+            <LoginSignUpHeader />
             <div className='notfound-page'>
                 <div className='f404'>
                     <h1 className='four'>4</h1>
@@ -14,7 +16,7 @@ const NotFoundPage = () => {
                     <h1 className='four'>4</h1>
                 </div>
                 <p>
-                    <span style={{color: "var(--red)"}}>Error (404):</span> Oops! It seems like you've fallen into a digital black hole!
+                    <span style={{ color: "var(--red)" }}>Error (404):</span> Oops! It seems like you've fallen into a digital black hole!
                     <br />
                     The page you were looking for does not exist. You may have
                     mistyped the address or the page may have moved.
