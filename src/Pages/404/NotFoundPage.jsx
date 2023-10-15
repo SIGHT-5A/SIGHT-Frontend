@@ -14,6 +14,8 @@ const NotFoundPage = () => {
                     <h1 className='four'>4</h1>
                 </div>
                 <p>
+                    <span style={{color: "var(--red)"}}>Error (404):</span> Oops! It seems like you've fallen into a digital black hole!
+                    <br />
                     The page you were looking for does not exist. You may have
                     mistyped the address or the page may have moved.
                 </p>

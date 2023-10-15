@@ -56,11 +56,18 @@ const Navbar = () => {
                     <Dropdown.Toggle style={{ display: "flex", alignItems: "center", justifyItems: "center", margin: 6, background: "transparent", paddingLeft: 10, paddingRight: 10, paddingTop: 2, paddingBottom: 2 }} variant="dark">
                         <Image className='user-avatar' src={defaultProfile} roundedCircle />
                     </Dropdown.Toggle>
-                    <Dropdown.Menu style={{ textAlign: 'left', background: "#161b22 !important" }} variant="dark" align="right">
+                    <Dropdown.Menu style={{ textAlign: 'left' }} variant='dark' align="right">
                         <Dropdown.Header style={{ fontWeight: 600, fontSize: 15, color: "white" }}>My Profile</Dropdown.Header>
-                        <Dropdown.Divider style={{ borderTopColor: "grey" }} />
-                        <Dropdown.Item href="/settings"><i className="fa-solid fa-regular fa-user inner-fa"></i>Manage Profile</Dropdown.Item>
-                        <Dropdown.Item href="/"><i class="fa-solid fa-arrow-right-from-bracket inner-fa"></i>Log Out</Dropdown.Item>
+                        <Dropdown.Item style={{ fontWeight: 500, fontSize: 14, color: "var(--grey)", pointerEvents: "none" }}>sahilkandhare07@gmail.com</Dropdown.Item>
+                        <Dropdown.Divider style={{ borderTopColor: "var(--border-color)" }} />
+                        <Dropdown.Item href="/settings">
+                            <p>Manage Profile </p>
+                            <span><i className="fa-solid fa-regular fa-user inner-fa"></i></span>
+                        </Dropdown.Item>
+                        <Dropdown.Item href="/">
+                            <p>Log Out</p>
+                            <span><i class="fa-solid fa-arrow-right-from-bracket inner-fa"></i></span>
+                        </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
