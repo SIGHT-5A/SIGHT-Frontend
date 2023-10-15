@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 
 const AllNotifications = () => {
   return (
-    <div>
+    <div className='all-notification-container'>
       <Navbar />
       AllNotifications
       <Footer />

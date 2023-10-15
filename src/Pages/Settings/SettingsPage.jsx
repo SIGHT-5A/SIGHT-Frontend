@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 
 const SettingsPage = () => {
   return (
-    <div>
+    <div className='settings-page-container'>
       <Navbar />
       SettingsPage
       <Footer />
