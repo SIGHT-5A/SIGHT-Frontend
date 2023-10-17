@@ -1,23 +1,162 @@
 import React, { useState } from 'react';
 import './LoginSignUpBody.scss';
+import data from './TermsOfService';
+import { ToastContainer, toast } from 'react-toastify';
 
-const LoginSignUpBody = () => {
+const LoginSignUpBody = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
+  const [isVisiblePolicy, setIsVisiblePolicy] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const toggleLoginRegister = () => {
     setIsLogin(!isLogin);
   };
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Implement the login logic here
+    const userData = { email, password };
+    // Make a POST request to the backend login route
+    fetch('http://localhost:2710/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          toast.success('Login Successful!!!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+          });
+          return response.json();
+        } else {
+          toast.error('Login Failed!!!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      })
+      .then((data) => {
+        // Update the user state with the authenticated user
+        let userData = data.user
+        onLogin(userData);
+        return;
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  };
+
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error('Password and Confirmation Password does not match.', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    }
+    const user = { email, password };
+    try {
+      const response = await fetch('http://localhost:2710/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+
+
+      if (response.ok) {
+        toast.success('Registration Successful!!!', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } else {
+        const error = await response.json()
+        toast.error(`${error.message}`, {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      }
+    } catch (error) {
+      toast.error('500: Server Side Error.', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }
 
   return (
     <div className="login-signup-body">
       {isLogin ? (
         <div className="login-section">
           <h2>Log in to SIGHT</h2>
-          <label>Email address</label>
-          <input type="email" placeholder="name@domain.com" />
-          <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
-          <button className='primary-button sign-in-button'>Log-In with Email</button>
+          <form onSubmit={handleLogin}>
+            <label>Email address</label>
+            <input
+              type="email"
+              placeholder="name@domain.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type='submit' className='primary-button sign-in-button'>Log-In with Email</button>
+          </form>
           <p>
             Don't have an account? {' '}
             <span onClick={toggleLoginRegister}>Register</span>.
@@ -25,21 +164,128 @@ const LoginSignUpBody = () => {
         </div>
       ) : (
         <div className="register-section">
+          {
+            isVisiblePolicy &&
+            (
+              <div className='policy' >
+                <div className="policy-content">
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    position: 'sticky',
+                    top: 0,
+                    background: '#121316',
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    borderBottom: "1px solid #747476"
+                  }}>
+                    <h4
+                      style={{
+                        margin: 0
+                      }}
+                    >Terms of Service and Privacy Policy</h4>
+                    <div>
+                      <i style={{
+                        fontSize: 22,
+                        cursor: 'pointer'
+                      }} className="fa-solid fa-xmark"
+                        onClick={() => setIsVisiblePolicy(!isVisiblePolicy)}
+                      >
+                      </i>
+                    </div>
+                  </div>
+                  <p>
+                    By using the SIGHT application, you agree to comply with and be bound by these Terms of Service. If you do not agree to these Terms, please do not use the application.
+                  </p>
+                  {
+                    data.map((item, idx) => (
+                      <div style={{
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                        alignItems: "flex-start",
+                        flexDirection: 'column'
+                      }} key={idx}>
+                        <h6 style={{
+                          color: '#0080ff',
+                          margin: 0
+                        }}>🔹 {item.title}: </h6>
+                        <p style={{
+                          marginTop: 3
+                        }}>{item.info}</p>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            )
+          }
+
           <h2>Register to SIGHT</h2>
-          <label>Email address</label>
-          <input type="email" placeholder="name@domain.com" />
-          <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
-          <label>Confirm Password</label>
-          <input type="password" placeholder="Re-enter your password" />
-          <button className='primary-button register-in-button'>Register with Email</button>
+          <form onSubmit={handleRegister}>
+            <label>Email address</label>
+            <input
+              type="email"
+              placeholder="name@domain.com"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Create new password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              placeholder="Re-enter to confirm password"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", marginTop: 10 }}>
+              <input className='check-box' type='checkbox' required={true} />
+              <label className='check-box-label'>
+                By signing up, I agree to &nbsp;
+                <span
+                  style={{
+                    textDecoration: 'underline',
+                    color: '#0080ff',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => setIsVisiblePolicy(!isVisiblePolicy)}>Terms of Use and Privacy Policy.</span>
+              </label>
+            </div>
+            <button type='submit' className='primary-button register-in-button'>Register with Email</button>
+          </form>
           <p>
             Already have an account?{' '}
             <span onClick={toggleLoginRegister}>Log in</span>.
           </p>
         </div>
-      )}
-    </div>
+      )
+      }
+
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+    </div >
   );
 };
 

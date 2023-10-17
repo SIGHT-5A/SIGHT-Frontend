@@ -4,10 +4,10 @@ import Footer from '../../../components/Footer/Footer'
 import Navbar from '../../../components/Navbar/Navbar'
 import Dashboard from '../../../components/Dashboard/Dashboard'
 
-const AnalyzerPage = () => {
+const AnalyzerPage = ({ user }) => {
   return (
     <div>
-      <Navbar />
+      <Navbar user={user} />
       <Dashboard />
       Analyzer
       <Footer />

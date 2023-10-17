@@ -3,10 +3,10 @@ import './SettingsPage.scss'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
 
-const SettingsPage = () => {
+const SettingsPage = ({ user }) => {
   return (
-    <div>
-      <Navbar />
+    <div className='settings-page-container'>
+      <Navbar user={user} />
       SettingsPage
       <Footer />
     </div>
