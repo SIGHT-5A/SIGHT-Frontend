@@ -4,11 +4,11 @@ import LoginSignUpHeader from '../../components/LoginSignUpHeader/LoginSignUpHea
 import LoginSignUpBody from '../../components/LoginSignUpBody/LoginSignUpBody'
 import Footer from '../../components/Footer/Footer'
 
-const LoginSignUpPage = () => {
+const LoginSignUpPage = ({ onLogin }) => {
     return (
         <div className='Login-SignUp-Page-Container'>
             <LoginSignUpHeader />
-            <LoginSignUpBody />
+            <LoginSignUpBody onLogin={onLogin} />
             <Footer />
         </div>
     )

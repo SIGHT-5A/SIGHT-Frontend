@@ -1,11 +1,11 @@
 import React from 'react'
 import logo from "../../assets/logo.webp"
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import "./NotFoundPage.scss"
 import Footer from '../../components/Footer/Footer';
 import LoginSignUpHeader from '../../components/LoginSignUpHeader/LoginSignUpHeader';
 
-const NotFoundPage = () => {
+const NotFoundPage = ({ user }) => {
     return (
         <>
             <LoginSignUpHeader />
@@ -21,7 +21,7 @@ const NotFoundPage = () => {
                     The page you were looking for does not exist. You may have
                     mistyped the address or the page may have moved.
                 </p>
-                <Link to="/" className='primary-button home-btn'>Back to Home</Link>
+                <NavLink to={"/"} className='primary-button home-btn'>Back to Home</NavLink>
             </div>
             <Footer />
         </>

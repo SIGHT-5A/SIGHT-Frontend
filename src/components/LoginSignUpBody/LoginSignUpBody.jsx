@@ -1,25 +1,162 @@
 import React, { useState } from 'react';
 import './LoginSignUpBody.scss';
 import data from './TermsOfService';
+import { ToastContainer, toast } from 'react-toastify';
 
-const LoginSignUpBody = () => {
+const LoginSignUpBody = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [isVisiblePolicy, setIsVisiblePolicy] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const toggleLoginRegister = () => {
     setIsLogin(!isLogin);
   };
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Implement the login logic here
+    const userData = { email, password };
+    // Make a POST request to the backend login route
+    fetch('http://localhost:2710/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          toast.success('Login Successful!!!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+          });
+          return response.json();
+        } else {
+          toast.error('Login Failed!!!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      })
+      .then((data) => {
+        // Update the user state with the authenticated user
+        let userData = data.user
+        onLogin(userData);
+        return;
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  };
+
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error('Password and Confirmation Password does not match.', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    }
+    const user = { email, password };
+    try {
+      const response = await fetch('http://localhost:2710/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+
+
+      if (response.ok) {
+        toast.success('Registration Successful!!!', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } else {
+        const error = await response.json()
+        toast.error(`${error.message}`, {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      }
+    } catch (error) {
+      toast.error('500: Server Side Error.', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }
 
   return (
     <div className="login-signup-body">
       {isLogin ? (
         <div className="login-section">
           <h2>Log in to SIGHT</h2>
-          <label>Email address</label>
-          <input type="email" placeholder="name@domain.com" />
-          <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
-          <button className='primary-button sign-in-button'>Log-In with Email</button>
+          <form onSubmit={handleLogin}>
+            <label>Email address</label>
+            <input
+              type="email"
+              placeholder="name@domain.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type='submit' className='primary-button sign-in-button'>Log-In with Email</button>
+          </form>
           <p>
             Don't have an account? {' '}
             <span onClick={toggleLoginRegister}>Register</span>.
@@ -85,15 +222,36 @@ const LoginSignUpBody = () => {
           }
 
           <h2>Register to SIGHT</h2>
-          <form action="">
+          <form onSubmit={handleRegister}>
             <label>Email address</label>
-            <input type="email" placeholder="name@domain.com" />
+            <input
+              type="email"
+              placeholder="name@domain.com"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
             <label>Password</label>
-            <input type="password" placeholder="Create new password" />
+            <input
+              type="password"
+              placeholder="Create new password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
             <label>Confirm Password</label>
-            <input type="password" placeholder="Re-enter to confirm password" />
+            <input
+              type="password"
+              placeholder="Re-enter to confirm password"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+
             <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", marginTop: 10 }}>
-              <input className='check-box' type='checkbox' />
+              <input className='check-box' type='checkbox' required={true} />
               <label className='check-box-label'>
                 By signing up, I agree to &nbsp;
                 <span
@@ -114,6 +272,19 @@ const LoginSignUpBody = () => {
         </div>
       )
       }
+
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div >
   );
 };

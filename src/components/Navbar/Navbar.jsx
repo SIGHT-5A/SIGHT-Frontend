@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./Navbar.scss"
 import logo from "../../assets/logo.webp"
-import defaultProfile from "../../assets/default-profile.webp"
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Dropdown, Image } from 'react-bootstrap';
@@ -43,20 +42,20 @@ const userAvatars = [
     `<i class="fa-brands fa-first-order"></i>`
 ]
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
     const [uncheckedNotifications, setUncheckedNotifications] = useState(10);
     const [route, setRoute] = useState("/");
     const location = useLocation();
+
     // Function to check if the current URL starts with "/home"
     useEffect(() => {
         const isActive = () => {
             setRoute(location.pathname);
         };
         isActive();
-        console.log(userAvatars.length)
     }, [])
 
-    const selectedAvatar = userAvatars[29];
+    const selectedAvatar = userAvatars[user.avatarId];
     return (
         <div className='my-navbar'>
             <div className='nav-logo'>
@@ -92,17 +91,17 @@ const Navbar = () => {
                 <Dropdown>
                     <Dropdown.Toggle style={{ display: "flex", alignItems: "center", justifyItems: "center", margin: 6, background: "transparent", paddingLeft: 10, paddingRight: 10, paddingTop: 2, paddingBottom: 2 }} variant="dark">
                         <div style={{
-                            background: "white",
-                            color: "var(--blue)",
+                            background: user.avatarBg,
+                            color: user.avatarColor,
                             fontSize: 20
                         }} className="user-avatar" dangerouslySetInnerHTML={{ __html: selectedAvatar }} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{ textAlign: 'left' }} variant='dark' align="right">
                         <Dropdown.Header style={{ fontWeight: 600, fontSize: 15, color: "white" }}>My Profile</Dropdown.Header>
-                        <Dropdown.Item style={{ fontWeight: 500, fontSize: 14, color: "var(--grey)", pointerEvents: "none" }}>sahilkandhare07@gmail.com</Dropdown.Item>
+                        <Dropdown.Item style={{ fontWeight: 500, fontSize: 14, color: "var(--grey)", pointerEvents: "none" }}>{user.email}</Dropdown.Item>
                         <Dropdown.Divider style={{ borderTopColor: "var(--border-color)" }} />
-                        <Dropdown.Item href="/settings">
-                            <p>Manage Profile </p>
+                        <Dropdown.Item >
+                            <NavLink className="nav-link-manage-profile" to={'/settings'}>Manage Profile</NavLink>
                             <span><i className="fa-solid fa-regular fa-user inner-fa"></i></span>
                         </Dropdown.Item>
                         <Dropdown.Item href="/">
