@@ -7,14 +7,23 @@ import AnalyzerPage from "./Pages/Home-Dashboard/Analyzer/AnalyzerPage";
 import LiveRecordingPage from "./Pages/Home-Dashboard/LiveRecording/LiveRecordingPage";
 import AllNotifications from "./Pages/Notifications/AllNotifications";
 import SettingsPage from "./Pages/Settings/SettingsPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [user, setUser] = useState(null);
+  useEffect(() => {
+    setUser({
+      email: 'sahilkandhare07@gmail.com',
+      avatarBg: '#fff',
+      avatarColor: '#7444ff',
+      avatarId: 7
+    })
+  }, []);
 
   const handleLogin = (userData) => {
-    setUser(userData);
-  };
+    // setUser(userData);
+    console.log('object');
+  }
   return (
     <>
       <BrowserRouter>

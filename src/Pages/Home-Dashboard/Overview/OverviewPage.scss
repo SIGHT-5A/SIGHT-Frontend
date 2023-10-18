@@ -1,0 +1,57 @@
+.overview-main-container {
+    .overview-container {
+        padding: 0 70px;
+
+        .chart-container {
+            .charts {
+                .row {
+                    justify-content: space-between;
+
+                    .bar-chart-container {
+                        padding: 30px;
+                        background-color: var(--card-color);
+                        border-radius: 10px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        width: 65%;
+                    }
+
+                    .pie-chart-container {
+                        padding: 30px;
+                        background-color: var(--card-color);
+                        border-radius: 10px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        width: 30%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .overview-main-container {
+        .overview-container {
+            padding: 0 30px;
+
+            .chart-container {
+                .charts {
+                    .row {
+                        flex-direction: column;
+
+                        .bar-chart-container {
+                            padding: 20px;
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
+
+                        .pie-chart-container {
+                            padding: 20px;
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
