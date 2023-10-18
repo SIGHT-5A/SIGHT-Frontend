@@ -83,7 +83,8 @@ const BarChart = () => {
                 callbacks: {
                     title: () => 'Anomaly Frequency',
                     label: (context) => {
-                        return `At ${context.label}: ${context.parsed} occurrences`;
+                        console.log(context)
+                        return `At ${context.label}: ${context.parsed.y} occurrences`;
                     },
                 },
             },
