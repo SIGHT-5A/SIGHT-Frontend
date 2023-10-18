@@ -1,4 +1,8 @@
-.overview-main-container {
+.below-dashboard-main-container {
+    .overview-section {
+        margin-bottom: 80px;
+    }
+
     .overview-container {
         padding: 0 70px;
 
@@ -26,12 +30,86 @@
             }
         }
     }
+
+    .dark-table-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 30px 50px;
+        background-color: var(--card-color);
+        border-radius: 10px;
+
+        .table-dark {
+            margin: 0;
+            height: 10px;
+        }
+
+
+        .pagination-btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0;
+        }
+
+        .pagination-btns button {
+            // background-color: var(--blue);
+            background-color: transparent;
+            /* Change this to your desired background color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+
+            /* Disable button styles */
+            &:disabled {
+                background-color: transparent;
+                cursor: not-allowed;
+                color: var(--grey);
+            }
+
+            /* Icon styles */
+            i {
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+
+        .pagination-btns>.page-number-btn {
+            background: transparent;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--blue);
+        }
+
+        /* Hover effect for enabled buttons */
+        .pagination-btns button:not(:disabled):hover {
+            background-color: var(--hover-color);
+            /* Change this to your desired hover color */
+        }
+
+
+        .all-report-button {
+            padding: 15px;
+            cursor: pointer;
+            width: 300px;
+        }
+        .all-report-button:hover{
+            background: var(--hover-color);
+        }
+    }
 }
 
 @media (max-width: 500px) {
-    .overview-main-container {
+    .below-dashboard-main-container {
         .overview-container {
-            padding: 0 30px;
+            padding: 0 25px;
 
             .chart-container {
                 .charts {
@@ -52,6 +130,12 @@
                     }
                 }
             }
+        }
+
+        .dark-table-container {
+            padding: 10px 10px;
+            background-color: transparent;
+            border-radius: 10px;
         }
     }
 }

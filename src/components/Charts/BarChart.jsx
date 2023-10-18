@@ -24,12 +24,12 @@ const BarChart = () => {
     // Create colors for each data point
     const shadesOfBlueBorder = [];
     for (let i = 0; i < 24; i++) {
-        shadesOfBlueBorder.push("#1E76F7");
+        shadesOfBlueBorder.push("#7444ff");
     }
 
     const shadesOfBlue = [];
     for (let i = 0; i < 24; i++) {
-        shadesOfBlue.push("#1E76F727");
+        shadesOfBlue.push("#7444ff27");
     }
 
     const data = {

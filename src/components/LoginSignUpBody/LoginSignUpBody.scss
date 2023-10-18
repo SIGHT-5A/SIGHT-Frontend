@@ -62,13 +62,13 @@
         margin-top: 10px;
 
         span {
-            color: var(--hover-color);
+            color: var(--blue);
             text-decoration: underline;
             cursor: pointer;
         }
 
         span:hover {
-            color: var(--blue);
+            color: var(--hover-color);
 
         }
 
@@ -113,7 +113,7 @@
         color: #ffffffbd;
 
         h4 {
-            color: #0080ff;
+            color: #7444ff;
             align-self: center;
         }
     }
