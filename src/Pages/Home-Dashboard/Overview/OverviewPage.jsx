@@ -12,55 +12,55 @@ const OverviewPage = ({ user }) => {
     {
       timestamp: '2023-10-17 10:30 AM',
       event: 'Fight Anomaly Detected',
-      severity: 'High',
+      severity: 'Severe',
       location: 'cam-1'
     },
     {
       timestamp: '2023-10-17 12:45 PM',
       event: 'Fire Anomaly Detected',
-      severity: 'Medium',
+      severity: 'Moderate',
       location: 'cam-2'
     },
     {
       timestamp: '2023-10-17 3:15 PM',
       event: 'Accident Anomaly Detected',
-      severity: 'Low',
+      severity: 'Normal',
       location: 'cam-3'
     },
     {
       timestamp: '2023-10-17 10:30 AM',
       event: 'Fight Anomaly Detected',
-      severity: 'High',
+      severity: 'Severe',
       location: 'cam-1'
     },
     {
       timestamp: '2023-10-17 12:45 PM',
       event: 'Fire Anomaly Detected',
-      severity: 'Medium',
+      severity: 'Moderate',
       location: 'cam-2'
     },
     {
       timestamp: '2023-10-17 3:15 PM',
       event: 'Accident Anomaly Detected',
-      severity: 'Low',
+      severity: 'Normal',
       location: 'cam-3'
     },
     {
       timestamp: '2023-10-17 10:30 AM',
       event: 'Fight Anomaly Detected',
-      severity: 'High',
+      severity: 'Severe',
       location: 'cam-1'
     },
     {
       timestamp: '2023-10-17 12:45 PM',
       event: 'Fire Anomaly Detected',
-      severity: 'Medium',
+      severity: 'Moderate',
       location: 'cam-2'
     },
     {
       timestamp: '2023-10-17 3:15 PM',
       event: 'Accident Anomaly Detected',
-      severity: 'Low',
+      severity: 'Normal',
       location: 'cam-3'
     },
   ];
@@ -121,11 +121,11 @@ const OverviewPage = ({ user }) => {
                     <td style={{ background: "var(--card-color)" }}>{item.timestamp}</td>
                     <td style={{ background: "var(--card-color)" }}>{item.event}</td>
                     {
-                      item.severity === "High"
+                      item.severity === "Severe"
                         ?
                         <td style={{ background: "var(--card-color)", color: "#FF5045" }}>{item.severity}</td>
                         :
-                        item.severity === "Medium"
+                        item.severity === "Moderate"
                           ?
                           <td style={{ background: "var(--card-color)", color: "#FFB545" }}>{item.severity}</td>
                           :
