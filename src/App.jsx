@@ -28,6 +28,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          {/* <Route path="/" element={<LoginSignUpPage />} /> */}
           <Route path="/" element={user ? <Navigate to="/home/overview" /> : <LoginSignUpPage onLogin={handleLogin} />} />
           <Route path="/home/overview" element={user ? <OverviewPage user={user} /> : <Navigate to="/" />} />
           <Route path="/home/events" element={user ? <EventsPage user={user} /> : <Navigate to="/" />} />

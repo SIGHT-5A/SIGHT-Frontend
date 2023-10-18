@@ -207,7 +207,7 @@ const LoginSignUpBody = ({ onLogin }) => {
                         flexDirection: 'column'
                       }} key={idx}>
                         <h6 style={{
-                          color: '#0080ff',
+                          color: '#7444ff',
                           margin: 0
                         }}>🔹 {item.title}: </h6>
                         <p style={{
@@ -257,7 +257,7 @@ const LoginSignUpBody = ({ onLogin }) => {
                 <span
                   style={{
                     textDecoration: 'underline',
-                    color: '#0080ff',
+                    color: '#7444ff',
                     cursor: 'pointer'
                   }}
                   onClick={() => setIsVisiblePolicy(!isVisiblePolicy)}>Terms of Use and Privacy Policy.</span>
