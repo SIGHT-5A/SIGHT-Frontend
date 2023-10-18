@@ -5,14 +5,17 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend, ArcElement);
 
 const PieChart = () => {
+
+    const SeverityData = [5, 11, 18];
+
     const data = {
-        labels: ['Red', 'Blue', 'Yellow'],
+        labels: ['Severe', 'Moderate', 'Normal'],
         datasets: [
             {
                 label: 'Severity frequency',
-                data: [25, 11, 18],
+                data: SeverityData,
                 backgroundColor: ['#FF504527', '#FFB54527', '#00C85227'],
-                borderColor: ['#FF5045', '#FFB545', '#00C852'],
+                borderColor: ['#FF5045af', '#FFB545af', '#00C852af'],
             },
         ],
     };
