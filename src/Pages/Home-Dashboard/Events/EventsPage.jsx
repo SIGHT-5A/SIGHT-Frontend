@@ -6,28 +6,14 @@ import Dashboard from '../../../components/Dashboard/Dashboard';
 import Dropdown from 'react-dropdown'; // You need to import a Dropdown component
 import 'react-dropdown/style.css'; // Import default styles for the dropdown
 
-const customDropdownStyles = {
-  control: (base) => ({
-    ...base,
-    backgroundColor: '#333', // Dark background color
-    color: '#fff', // Light text color
-    border: '1px solid #666', // Dark border
-  }),
-  option: (styles, state) => ({
-    ...styles,
-    backgroundColor: state.isSelected ? '#444' : '#333', // Dark background for selected and non-selected options
-    color: state.isSelected ? '#fff' : '#ccc', // Light text for selected and non-selected options
-  }),
-};
-
 const EventsPage = ({ user }) => {
   const [filterOption, setFilterOption] = useState('');
   const [severityOption, setSeverityOption] = useState('');
   const [sortOption, setSortOption] = useState('');
 
   const filterOptions = ['All', 'Fighting', 'Accident', 'Fire'];
-  const severityOptions = ['Severe', 'Normal', 'Moderate'];
-  const sortOptions = ['Date', 'Time'];
+  const severityOptions = ['Default', 'Severe', 'Normal', 'Moderate'];
+  const sortOptions = ['None', 'Date', 'Time'];
 
   return (
     <div>
@@ -54,21 +40,18 @@ const EventsPage = ({ user }) => {
                 value={filterOption}
                 onChange={(option) => setFilterOption(option.value)}
                 placeholder="Filter"
-                styles={customDropdownStyles} // Apply custom styles for dark theme
               />
               <Dropdown
                 options={severityOptions}
                 value={severityOption}
                 onChange={(option) => setSeverityOption(option.value)}
                 placeholder="Severity"
-                styles={customDropdownStyles} // Apply custom styles for dark theme
               />
               <Dropdown
                 options={sortOptions}
-                value={'sort'}
+                value={sortOption}
                 onChange={(option) => setSortOption(option.value)}
                 placeholder="Sort"
-                styles={customDropdownStyles} // Apply custom styles for dark theme
               />
             </div>
 
