@@ -117,12 +117,16 @@ const EventsPage = ({ user }) => {
   ]
 
   const isNoAnomaly = (num) => {
-    if (num === 0) {
+    console.log(num);
+    if (num == 0) {
       return {
         background: "var(--card-color)"
       };
     }
-    return {};
+    return {
+      background: "transparent",
+      border: 'none'
+    };
   }
 
   const getColor = (ThreatLevel) => {
