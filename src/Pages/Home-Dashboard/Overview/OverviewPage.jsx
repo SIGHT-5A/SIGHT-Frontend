@@ -6,6 +6,7 @@ import Dashboard from '../../../components/Dashboard/Dashboard'
 import BarChart from '../../../components/Charts/BarChart'
 import PieChart from '../../../components/Charts/PieChart'
 import Table from 'react-bootstrap/Table';
+import NoAnomaly from '../../../components/NoAnomalyDiv/NoAnomaly'
 
 const OverviewPage = ({ user }) => {
   const anomalyEvents = [];
@@ -145,20 +146,18 @@ const OverviewPage = ({ user }) => {
                 )
                 :
                 (
-                  <div className='no-anomaly'>
-                    <p>No Anomaly Detected Yet</p>
-                  </div>
+                  <NoAnomaly />
                 )
             }
             <div className="pagination-btns">
               <button disabled={true}>
-                <i class="fa-solid fa-backward"></i>
+                <i className="fa-solid fa-backward"></i>
               </button>
 
               <span className='page-number-btn'>1/10</span>
 
               <button>
-                <i class="fa-solid fa-forward"></i>
+                <i className="fa-solid fa-forward"></i>
               </button>
 
               <div className="search-page">

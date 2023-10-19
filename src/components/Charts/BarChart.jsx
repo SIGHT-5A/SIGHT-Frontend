@@ -1,7 +1,7 @@
 import React from 'react';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import "./chart.scss"
+import NoAnomaly from '../NoAnomalyDiv/NoAnomaly';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
@@ -109,9 +109,7 @@ const BarChart = () => {
                     (<Bar height={300} width={400} data={data} options={options} />)
                     :
                     (
-                        <div className='no-anomaly'>
-                            <p>No Anomaly Detected Yet</p>
-                        </div>
+                        <NoAnomaly />
                     )
             }
 
