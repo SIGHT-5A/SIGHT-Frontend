@@ -168,17 +168,17 @@ const LoginSignUpBody = ({ onLogin }) => {
             isVisiblePolicy &&
             (
               <div className='policy' >
-                <div className="policy-content">
+                <div className="policy-content card">
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     position: 'sticky',
                     top: 0,
-                    background: '#121316',
+                    background: 'var(--card-color)',
                     paddingTop: 20,
                     paddingBottom: 20,
-                    borderBottom: "1px solid #747476"
+                    borderBottom: "1px solid var(--border-color)"
                   }}>
                     <h4
                       style={{
@@ -202,16 +202,25 @@ const LoginSignUpBody = ({ onLogin }) => {
                     data.map((item, idx) => (
                       <div style={{
                         display: "flex",
-                        justifyContent: "space-evenly",
+                        justifyContent: "center",
                         alignItems: "flex-start",
                         flexDirection: 'column'
                       }} key={idx}>
                         <h6 style={{
-                          color: '#7444ff',
-                          margin: 0
-                        }}>🔹 {item.title}: </h6>
+                          color: 'var(--blue)',
+                          margin: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          fontSize: 18,
+                        }}>
+                          <span
+                            className='wrapper'
+                            dangerouslySetInnerHTML={{ __html: item.icon }} />
+                          &nbsp;
+                          {item.title}:
+                        </h6>
                         <p style={{
-                          marginTop: 3
+                          marginTop: 3,
                         }}>{item.info}</p>
                       </div>
                     ))
@@ -257,7 +266,7 @@ const LoginSignUpBody = ({ onLogin }) => {
                 <span
                   style={{
                     textDecoration: 'underline',
-                    color: '#7444ff',
+                    color: 'var(--blue)',
                     cursor: 'pointer'
                   }}
                   onClick={() => setIsVisiblePolicy(!isVisiblePolicy)}>Terms of Use and Privacy Policy.</span>

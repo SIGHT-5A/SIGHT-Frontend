@@ -1,17 +1,20 @@
 import React from 'react';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import "./chart.scss"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 const BarChart = () => {
     // Generate random data for the y-axis (anomaly frequencies)
-    const yData = [
-        1, 3, 6, 9, 12, 15,
-        18, 21, 24, 27, 30, 33,
-        30, 27, 24, 21, 18, 15,
-        12, 8, 6, 3, 2, 1
-    ];
+    // const yData = [
+    //     1, 3, 6, 9, 12, 15,
+    //     18, 21, 24, 27, 30, 33,
+    //     30, 27, 24, 21, 18, 15,
+    //     12, 8, 6, 3, 2, 1
+    // ];
+
+    const yData = [];
 
     // Create labels for the x-axis
     const xLabels = [
@@ -24,12 +27,12 @@ const BarChart = () => {
     // Create colors for each data point
     const shadesOfBlueBorder = [];
     for (let i = 0; i < 24; i++) {
-        shadesOfBlueBorder.push("#7444ff");
+        shadesOfBlueBorder.push("#167efc");
     }
 
     const shadesOfBlue = [];
     for (let i = 0; i < 24; i++) {
-        shadesOfBlue.push("#7444ff27");
+        shadesOfBlue.push("#167efc27");
     }
 
     const data = {
@@ -100,7 +103,18 @@ const BarChart = () => {
 
     return (
         <div>
-            <Bar height={300} width={400} data={data} options={options} />
+            {
+                yData.length
+                    ?
+                    (<Bar height={300} width={400} data={data} options={options} />)
+                    :
+                    (
+                        <div className='no-anomaly'>
+                            <p>No Anomaly Detected Yet</p>
+                        </div>
+                    )
+            }
+
         </div>
     );
 };

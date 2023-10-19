@@ -7,16 +7,17 @@
 }
 
 :root {
-    --bg-color: #070708;
-    --card-color: #1B1B1F;
+    --bg-color: #02040a;
+    --card-color: #0d1116;
     --white: #fff;
+    --light-white: #fdfdfd;
     --black: #000;
     --grey: #888;
-    --blue: #7444ff;
+    --blue: #346aff;
     --green: #00C852;
     --red: #FF5045;
     --orange: #FFB545;
-    --hover-color: #4e2eaf;
+    --hover-color: #4c7cff;
     --border-color: #30363d;
 }
 
@@ -58,4 +59,8 @@ img {
     border-radius: 6px;
     font-weight: 500;
     font-size: 1rem;
+}
+
+.card {
+    border: 1px solid var(--border-color);
 }
