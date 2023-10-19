@@ -114,10 +114,10 @@ const OverviewPage = ({ user }) => {
                   <Table variant="dark" className="dark-table">
                     <thead>
                       <tr>
-                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", borderRight: '1px solid transparent' }}>Timestamp</th>
-                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", borderRight: '1px solid transparent' }}>Event</th>
-                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", borderRight: '1px solid transparent', textAlign: 'center' }}>Severity</th>
-                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", textAlign: 'center' }}>Location</th>
+                        <th style={{ background: "#167efc27", padding: 10, color: "var(--white)", border: "1px solid #167efc", borderRight: 'none' }}>Timestamp</th>
+                        <th style={{ background: "#167efc27", padding: 10, color: "var(--white)", border: "1px solid #167efc", borderLeft: 'none', borderRight: 'none' }}>Event</th>
+                        <th style={{ background: "#167efc27", padding: 10, color: "var(--white)", border: "1px solid #167efc", borderLeft: 'none', borderRight: 'none', textAlign: 'center' }}>Severity</th>
+                        <th style={{ background: "#167efc27", padding: 10, color: "var(--white)", border: "1px solid #167efc", borderLeft: 'none', textAlign: 'center' }}>Location</th>
                       </tr>
                     </thead>
                     <tbody>

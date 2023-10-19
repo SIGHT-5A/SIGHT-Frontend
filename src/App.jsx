@@ -33,7 +33,7 @@ function App() {
           <Route path="/home/overview" element={user ? <OverviewPage user={user} /> : <Navigate to="/" />} />
           <Route path="/home/events" element={user ? <EventsPage user={user} /> : <Navigate to="/" />} />
           <Route path="/home/analyzer" element={user ? <AnalyzerPage user={user} /> : <Navigate to="/" />} />
-          <Route path="/home/live" element={user ? <LiveRecordingPage user={user} /> : <Navigate to="/" />} />
+          {/* <Route path="/home/live" element={user ? <LiveRecordingPage user={user} /> : <Navigate to="/" />} /> */}
           <Route path="/notifications" element={user ? <AllNotifications user={user} /> : <Navigate to="/" />} />
           <Route path="/settings" element={user ? <SettingsPage user={user} /> : <Navigate to="/" />} />
 

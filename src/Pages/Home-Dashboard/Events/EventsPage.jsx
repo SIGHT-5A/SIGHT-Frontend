@@ -162,6 +162,15 @@ const EventsPage = ({ user }) => {
           <form className="event-list-search">
             <div className='search-bar'>
               <input type='text' placeholder='Find an Anomaly with ID ...' />
+              <button
+                style={{
+                  padding: "6px 10px",
+                  background: "var(--blue)",
+                  border: 'none',
+                  color: 'var(--white)',
+                  borderRadius: 6
+                }}
+                type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
 
             <div className="drop-downs">
