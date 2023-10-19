@@ -77,7 +77,7 @@ const OverviewPage = ({ user }) => {
               fontSize: 18,
               marginBottom: 20
             }}
-          > <i className="fa-solid fa-chart-line"></i> Data Analysis</h3>
+          > <i className="fa-solid fa-chart-line"></i>&nbsp; Data Analysis</h3>
 
           <div className="charts">
             <div className="row">
@@ -102,7 +102,7 @@ const OverviewPage = ({ user }) => {
               fontSize: 18,
               marginBottom: 20
             }}
-          > <i className="fa-solid fa-calendar-days"></i> Event History</h3>
+          > <i className="fa-solid fa-calendar-days"></i>&nbsp; Event History</h3>
 
 
           <div className="card dark-table-container">
