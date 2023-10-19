@@ -7,8 +7,8 @@ ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend, ArcElement);
 
 const PieChart = () => {
 
-    // const SeverityData = [5, 11, 18];
-    const SeverityData = [];
+    const SeverityData = [5, 11, 18];
+    // const SeverityData = [];
 
     const data = {
         labels: ['Severe', 'Moderate', 'Normal'],

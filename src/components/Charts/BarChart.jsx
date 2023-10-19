@@ -7,14 +7,14 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 const BarChart = () => {
     // Generate random data for the y-axis (anomaly frequencies)
-    // const yData = [
-    //     1, 3, 6, 9, 12, 15,
-    //     18, 21, 24, 27, 30, 33,
-    //     30, 27, 24, 21, 18, 15,
-    //     12, 8, 6, 3, 2, 1
-    // ];
+    const yData = [
+        1, 3, 6, 9, 12, 15,
+        18, 21, 24, 27, 30, 33,
+        30, 27, 24, 21, 18, 15,
+        12, 8, 6, 3, 2, 1
+    ];
 
-    const yData = [];
+    // const yData = [];
 
     // Create labels for the x-axis
     const xLabels = [
