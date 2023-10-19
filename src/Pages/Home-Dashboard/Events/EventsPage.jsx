@@ -16,125 +16,105 @@ const EventsPage = ({ user }) => {
   const severityOptions = ['Default', 'Severe', 'Normal', 'Moderate'];
   const sortOptions = ['None', 'Date', 'Time'];
 
-  const anomalyData = [];
-  // const anomalyData = [
-  //   {
-  //     id: "SIGHT #12",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Moderate"
-  //   },
-  //   {
-  //     id: "SIGHT #11",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Normal"
-  //   },
-  //   {
-  //     id: "SIGHT #10",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Severe"
-  //   },
-  //   {
-  //     id: "SIGHT #9",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Moderate"
-  //   },
-  //   {
-  //     id: "SIGHT #8",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Moderate"
-  //   },
-  //   {
-  //     id: "SIGHT #7",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Normal"
-  //   },
-  //   {
-  //     id: "SIGHT #6",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Severe"
-  //   },
-  //   {
-  //     id: "SIGHT #5",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Moderate"
-  //   },
-  //   {
-  //     id: "SIGHT #4",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Moderate"
-  //   },
-  //   {
-  //     id: "SIGHT #3",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Moderate"
-  //   },
-  //   {
-  //     id: "SIGHT #2",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Normal"
-  //   },
-  //   {
-  //     id: "SIGHT #1",
-  //     AnomalyType: "Fight Event",
-  //     Timestamp: "10 Oct 2023, 12:30 P.M.",
-  //     EventDuration: "3 Minutes",
-  //     Location: "Camera 1",
-  //     ThreatLevel: "Severe"
-  //   },
-  // ]
-
-  const getAnomalyCardStyle = (threatLevel) => {
-    if (threatLevel === 'Severe') {
-      return {
-        border: "1px solid var(--red)",
-        background: "#ff000017"
-      };
-    } else if (threatLevel === 'Moderate') {
-      return {
-        border: "1px solid var(--orange)",
-        background: "#ffb54514"
-      };
-    } else {
-      return {
-        border: "1px solid var(--green)",
-        background: "#00f90017"
-      };
-    }
-  };
-
+  // const anomalyData = [];
+  const anomalyData = [
+    {
+      id: "SIGHT #12",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Moderate"
+    },
+    {
+      id: "SIGHT #11",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Normal"
+    },
+    {
+      id: "SIGHT #10",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Severe"
+    },
+    {
+      id: "SIGHT #9",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Moderate"
+    },
+    {
+      id: "SIGHT #8",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Moderate"
+    },
+    {
+      id: "SIGHT #7",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Normal"
+    },
+    {
+      id: "SIGHT #6",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Severe"
+    },
+    {
+      id: "SIGHT #5",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Moderate"
+    },
+    {
+      id: "SIGHT #4",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Moderate"
+    },
+    {
+      id: "SIGHT #3",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Moderate"
+    },
+    {
+      id: "SIGHT #2",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Normal"
+    },
+    {
+      id: "SIGHT #1",
+      AnomalyType: "Fight Event",
+      Timestamp: "10 Oct 2023, 12:30 P.M.",
+      EventDuration: "3 Minutes",
+      Location: "Camera 1",
+      ThreatLevel: "Severe"
+    },
+  ]
 
   const isNoAnomaly = (num) => {
     if (num === 0) {
@@ -143,6 +123,22 @@ const EventsPage = ({ user }) => {
       };
     }
     return {};
+  }
+
+  const getColor = (ThreatLevel) => {
+    if (ThreatLevel === 'Severe') {
+      return {
+        color: "var(--red)"
+      };
+    } else if (ThreatLevel === 'Moderate') {
+      return {
+        color: "var(--orange)"
+      };
+    } else {
+      return {
+        color: "var(--green)"
+      };
+    }
   }
 
   return (
@@ -196,13 +192,13 @@ const EventsPage = ({ user }) => {
                     <>
                       <div className="card anomaly-card" key={index} >
                         <h4>ID: {anomaly.id}</h4>
-                        <div className="anomaly-card-description" style={getAnomalyCardStyle(anomaly.ThreatLevel)}>
+                        <div className="anomaly-card-description">
                           <h6 >Description</h6>
                           <p><span>• Anomaly Type:</span>  {anomaly.AnomalyType}</p>
                           <p><span>• Timestamp:</span>  {anomaly.Timestamp}</p>
                           <p><span>• Event Duration:</span>  {anomaly.EventDuration}</p>
                           <p><span>• Location:</span>  {anomaly.Location}</p>
-                          <p><span>• Threat Level:</span>  {anomaly.ThreatLevel}</p>
+                          <p><span>• Threat Level:</span> <span style={getColor(anomaly.ThreatLevel)}>{anomaly.ThreatLevel}</span> </p>
                         </div>
 
                         <div className="buttons">
