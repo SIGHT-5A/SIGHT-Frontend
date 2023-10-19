@@ -6,65 +6,66 @@ import Dashboard from '../../../components/Dashboard/Dashboard'
 import BarChart from '../../../components/Charts/BarChart'
 import PieChart from '../../../components/Charts/PieChart'
 import Table from 'react-bootstrap/Table';
+import NoAnomaly from '../../../components/NoAnomalyDiv/NoAnomaly'
 
 const OverviewPage = ({ user }) => {
-  const anomalyEvents = [];
-  // const anomalyEvents = [
-  //   {
-  //     timestamp: '2023-10-17 10:30 AM',
-  //     event: 'Fight Anomaly Detected',
-  //     severity: 'Severe',
-  //     location: 'cam-1'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 12:45 PM',
-  //     event: 'Fire Anomaly Detected',
-  //     severity: 'Moderate',
-  //     location: 'cam-2'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 3:15 PM',
-  //     event: 'Accident Anomaly Detected',
-  //     severity: 'Normal',
-  //     location: 'cam-3'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 10:30 AM',
-  //     event: 'Fight Anomaly Detected',
-  //     severity: 'Severe',
-  //     location: 'cam-1'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 12:45 PM',
-  //     event: 'Fire Anomaly Detected',
-  //     severity: 'Moderate',
-  //     location: 'cam-2'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 3:15 PM',
-  //     event: 'Accident Anomaly Detected',
-  //     severity: 'Normal',
-  //     location: 'cam-3'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 10:30 AM',
-  //     event: 'Fight Anomaly Detected',
-  //     severity: 'Severe',
-  //     location: 'cam-1'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 12:45 PM',
-  //     event: 'Fire Anomaly Detected',
-  //     severity: 'Moderate',
-  //     location: 'cam-2'
-  //   },
-  //   {
-  //     timestamp: '2023-10-17 3:15 PM',
-  //     event: 'Accident Anomaly Detected',
-  //     severity: 'Normal',
-  //     location: 'cam-3'
-  //   },
-  // ];
+  // const anomalyEvents = [];
+  const anomalyEvents = [
+    {
+      timestamp: '2023-10-17 10:30 AM',
+      event: 'Fight Anomaly Detected',
+      severity: 'Severe',
+      location: 'cam-1'
+    },
+    {
+      timestamp: '2023-10-17 12:45 PM',
+      event: 'Fire Anomaly Detected',
+      severity: 'Moderate',
+      location: 'cam-2'
+    },
+    {
+      timestamp: '2023-10-17 3:15 PM',
+      event: 'Accident Anomaly Detected',
+      severity: 'Normal',
+      location: 'cam-3'
+    },
+    {
+      timestamp: '2023-10-17 10:30 AM',
+      event: 'Fight Anomaly Detected',
+      severity: 'Severe',
+      location: 'cam-1'
+    },
+    {
+      timestamp: '2023-10-17 12:45 PM',
+      event: 'Fire Anomaly Detected',
+      severity: 'Moderate',
+      location: 'cam-2'
+    },
+    {
+      timestamp: '2023-10-17 3:15 PM',
+      event: 'Accident Anomaly Detected',
+      severity: 'Normal',
+      location: 'cam-3'
+    },
+    {
+      timestamp: '2023-10-17 10:30 AM',
+      event: 'Fight Anomaly Detected',
+      severity: 'Severe',
+      location: 'cam-1'
+    },
+    {
+      timestamp: '2023-10-17 12:45 PM',
+      event: 'Fire Anomaly Detected',
+      severity: 'Moderate',
+      location: 'cam-2'
+    },
+    {
+      timestamp: '2023-10-17 3:15 PM',
+      event: 'Accident Anomaly Detected',
+      severity: 'Normal',
+      location: 'cam-3'
+    },
+  ];
 
   return (
     <div className='below-dashboard-main-container'>
@@ -113,10 +114,10 @@ const OverviewPage = ({ user }) => {
                   <Table variant="dark" className="dark-table">
                     <thead>
                       <tr>
-                        <th style={{ background: "#161b22", padding: 10 }}>Timestamp</th>
-                        <th style={{ background: "#161b22", padding: 10 }}>Event</th>
-                        <th style={{ background: "#161b22", padding: 10 }}>Severity</th>
-                        <th style={{ background: "#161b22", padding: 10 }}>Location</th>
+                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", borderRight: '1px solid transparent' }}>Timestamp</th>
+                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", borderRight: '1px solid transparent' }}>Event</th>
+                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", borderRight: '1px solid transparent', textAlign: 'center' }}>Severity</th>
+                        <th style={{ background: "#346aff30", padding: 10, color: "var(--white)", border: "1px solid var(--blue)", textAlign: 'center' }}>Location</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -127,16 +128,16 @@ const OverviewPage = ({ user }) => {
                           {
                             item.severity === "Severe"
                               ?
-                              <td style={{ background: "var(--card-color)", color: "#FF5045" }}>{item.severity}</td>
+                              <td style={{ background: "var(--card-color)", color: "#FF5045", textAlign: 'center' }}>{item.severity}</td>
                               :
                               item.severity === "Moderate"
                                 ?
-                                <td style={{ background: "var(--card-color)", color: "#FFB545" }}>{item.severity}</td>
+                                <td style={{ background: "var(--card-color)", color: "#FFB545", textAlign: 'center' }}>{item.severity}</td>
                                 :
-                                <td style={{ background: "var(--card-color)", color: "#00C852" }}>{item.severity}</td>
+                                <td style={{ background: "var(--card-color)", color: "#00C852", textAlign: 'center' }}>{item.severity}</td>
                           }
 
-                          <td style={{ background: "var(--card-color)", color: "var(--light-white)" }}>{item.location}</td>
+                          <td style={{ background: "var(--card-color)", color: "var(--light-white)", textAlign: 'center' }}>{item.location}</td>
                         </tr>
                       ))
                       }
@@ -145,20 +146,18 @@ const OverviewPage = ({ user }) => {
                 )
                 :
                 (
-                  <div className='no-anomaly'>
-                    <p>No Anomaly Detected Yet</p>
-                  </div>
+                  <NoAnomaly />
                 )
             }
             <div className="pagination-btns">
               <button disabled={true}>
-                <i class="fa-solid fa-backward"></i>
+                <i className="fa-solid fa-backward"></i>
               </button>
 
               <span className='page-number-btn'>1/10</span>
 
               <button>
-                <i class="fa-solid fa-forward"></i>
+                <i className="fa-solid fa-forward"></i>
               </button>
 
               <div className="search-page">

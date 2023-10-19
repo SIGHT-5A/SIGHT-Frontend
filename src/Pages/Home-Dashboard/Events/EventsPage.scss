@@ -1,6 +1,6 @@
 .events-container {
     padding: 0 70px;
-    height: 100vh;
+    margin-bottom: 80px;
 
     .event-list-search {
         width: 100%;
@@ -77,6 +77,69 @@
             }
         }
     }
+
+    .anomaly-card-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        border-radius: 6px;
+    }
+
+    .anomaly-card-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 30px 0;
+    }
+
+    .anomaly-card {
+        padding: 20px;
+        border-radius: 5px;
+        width: calc(33.33% - 20px);
+        box-sizing: border-box;
+        transition: transform 0.2s;
+
+        h6 {
+            margin-bottom: 20px;
+            color: var(--blue);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+
+            .anomaly-report-btn {
+                width: 48%;
+            }
+
+            .anomaly-report-btn:hover {
+                background: var(--hover-color);
+            }
+
+            .download-video-btn {
+                width: 48%;
+            }
+
+            .download-video-btn:hover {
+                background: #151e33;
+            }
+        }
+    }
+
+    .anomaly-card-description {
+        padding: 20px 30px;
+        margin-top: 10px;
+        background: var(--bg-color);
+        border-radius: 10px;
+
+        p {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }
 
 @media (max-width: 500px) {
@@ -114,6 +177,10 @@
                     margin: 0 3px;
                 }
             }
+        }
+
+        .anomaly-card {
+            width: calc(100%);
         }
     }
 }

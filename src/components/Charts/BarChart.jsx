@@ -1,20 +1,20 @@
 import React from 'react';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import "./chart.scss"
+import NoAnomaly from '../NoAnomalyDiv/NoAnomaly';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 const BarChart = () => {
     // Generate random data for the y-axis (anomaly frequencies)
-    // const yData = [
-    //     1, 3, 6, 9, 12, 15,
-    //     18, 21, 24, 27, 30, 33,
-    //     30, 27, 24, 21, 18, 15,
-    //     12, 8, 6, 3, 2, 1
-    // ];
+    const yData = [
+        1, 3, 6, 9, 12, 15,
+        18, 21, 24, 27, 30, 33,
+        30, 27, 24, 21, 18, 15,
+        12, 8, 6, 3, 2, 1
+    ];
 
-    const yData = [];
+    // const yData = [];
 
     // Create labels for the x-axis
     const xLabels = [
@@ -109,9 +109,7 @@ const BarChart = () => {
                     (<Bar height={300} width={400} data={data} options={options} />)
                     :
                     (
-                        <div className='no-anomaly'>
-                            <p>No Anomaly Detected Yet</p>
-                        </div>
+                        <NoAnomaly />
                     )
             }
 

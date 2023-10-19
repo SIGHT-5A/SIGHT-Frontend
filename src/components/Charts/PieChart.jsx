@@ -1,14 +1,14 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import "./chart.scss"
+import NoAnomaly from '../NoAnomalyDiv/NoAnomaly';
 
 ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend, ArcElement);
 
 const PieChart = () => {
 
-    // const SeverityData = [5, 11, 18];
-    const SeverityData = [];
+    const SeverityData = [5, 11, 18];
+    // const SeverityData = [];
 
     const data = {
         labels: ['Severe', 'Moderate', 'Normal'],
@@ -59,9 +59,7 @@ const PieChart = () => {
                     (<Doughnut height={300} data={data} options={options} />)
                     :
                     (
-                        <div className='no-anomaly'>
-                            <p>No Anomaly Detected Yet</p>
-                        </div>
+                        <NoAnomaly />
                     )
             }
         </div>
