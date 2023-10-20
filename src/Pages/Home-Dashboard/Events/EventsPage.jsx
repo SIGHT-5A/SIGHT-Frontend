@@ -236,13 +236,13 @@ const EventsPage = ({ user }) => {
 
         <div className="pagination-btns">
           <button disabled={true}>
-            <i className="fa-solid fa-backward"></i>
+            Prev
           </button>
 
           <span className='page-number-btn'>1/10</span>
 
           <button>
-            <i className="fa-solid fa-forward"></i>
+            Next
           </button>
 
           <div className="search-page">
@@ -257,7 +257,7 @@ const EventsPage = ({ user }) => {
                 borderRadius: 6
               }} type="text" placeholder='Go to page...' />
               <button style={{
-                border: "1px solid #656e79",
+                border: "1px solid var(--border-color)",
                 padding: "5px 10px",
                 fontSize: 14,
                 marginLeft: 5

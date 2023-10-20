@@ -312,13 +312,13 @@ const AnalyzerPage = ({ user }) => {
 
             <div className="pagination-btns">
               <button disabled={true}>
-                <i className="fa-solid fa-backward"></i>
+                Prev
               </button>
 
               <span className='page-number-btn'>1/10</span>
 
               <button>
-                <i className="fa-solid fa-forward"></i>
+                Next
               </button>
 
               <div className="search-page">
@@ -333,7 +333,7 @@ const AnalyzerPage = ({ user }) => {
                     borderRadius: 6
                   }} type="text" placeholder='Go to page...' />
                   <button style={{
-                    border: "1px solid #656e79",
+                    border: "1px solid var(--border-color)",
                     padding: "5px 10px",
                     fontSize: 14,
                     marginLeft: 5
@@ -346,19 +346,19 @@ const AnalyzerPage = ({ user }) => {
         {isModalOpen && (
           <div className="modal">
             <div className="modal-content">
-              <h4 style={{color: "var(--blue)"}}>ID: {selectedAnalysis.video}</h4>
-              <p style={{color: "var(--grey)"}}>Description: {selectedAnalysis.description}</p>
+              <h4 style={{ color: "var(--blue)" }}>ID: {selectedAnalysis.video}</h4>
+              <p style={{ color: "var(--grey)" }}>Description: {selectedAnalysis.description}</p>
               <p>Uploaded at: {selectedAnalysis.TimeStamp}</p>
               {
-                selectedAnalysis.Analysis.map((item, id)=>(
+                selectedAnalysis.Analysis.map((item, id) => (
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     flexBasis: '5px',
                     margin: 0
                   }} className="analysis">
-                    <h6 style={{margin: 0, padding: 10}}>🔹 Detected Event: {item.DetectedEvent}</h6>
-                    <p style={{margin: 0, padding: 10}}> Timestamp: {item.Time}</p>
+                    <h6 style={{ margin: 0, padding: 10 }}>🔹 Detected Event: {item.DetectedEvent}</h6>
+                    <p style={{ margin: 0, padding: 10 }}> Timestamp: {item.Time}</p>
                   </div>
                 ))
               }

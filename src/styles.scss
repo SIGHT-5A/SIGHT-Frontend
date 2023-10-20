@@ -88,20 +88,20 @@ img {
 }
 
 .pagination-btns button {
-    // background-color: var(--blue);
-    background-color: transparent;
+    background-color: #21262d;
     /* Change this to your desired background color */
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 8px 12px;
+    padding: 5px 12px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    border: 1px solid var(--border-color);
 
     /* Disable button styles */
     &:disabled {
-        background-color: transparent;
+        background-color: #21262d;
         cursor: not-allowed;
         color: var(--grey);
     }
@@ -122,4 +122,12 @@ img {
 .pagination-btns button:not(:disabled):hover {
     transition: all 0.2s ease;
     color: var(--blue);
+}
+
+@media (max-width: 500px) {
+    .pagination-btns {
+        gap: 5px;
+        padding: 10px 0;
+        font-size: 12px;
+    }
 }
