@@ -71,12 +71,13 @@
 }
 
 .read-notification {
-    border: 1px solid var(--border-color);
+    // border: 1px solid var(--border-color);
+    border-bottom: 1px solid #1d2229;
 }
 
 .unread-notification {
     background: rgba(48, 128, 247, 0.153);
-    border: 1px solid #1f71eb89;
+    border-bottom: 1px solid #1f71eb89;
 }
 
 
