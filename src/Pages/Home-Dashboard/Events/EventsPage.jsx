@@ -117,12 +117,16 @@ const EventsPage = ({ user }) => {
   ]
 
   const isNoAnomaly = (num) => {
-    if (num === 0) {
+    console.log(num);
+    if (num == 0) {
       return {
         background: "var(--card-color)"
       };
     }
-    return {};
+    return {
+      background: "transparent",
+      border: 'none'
+    };
   }
 
   const getColor = (ThreatLevel) => {
@@ -158,6 +162,15 @@ const EventsPage = ({ user }) => {
           <form className="event-list-search">
             <div className='search-bar'>
               <input type='text' placeholder='Find an Anomaly with ID ...' />
+              <button
+                style={{
+                  padding: "6px 10px",
+                  background: "var(--blue)",
+                  border: 'none',
+                  color: 'var(--white)',
+                  borderRadius: 6
+                }}
+                type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
 
             <div className="drop-downs">
@@ -189,24 +202,22 @@ const EventsPage = ({ user }) => {
                 anomalyData.length
                   ?
                   anomalyData.map((anomaly, index) => (
-                    <>
-                      <div className="card anomaly-card" key={index} >
-                        <h4>ID: {anomaly.id}</h4>
-                        <div className="anomaly-card-description">
-                          <h6 >Description</h6>
-                          <p><span>• Anomaly Type:</span>  {anomaly.AnomalyType}</p>
-                          <p><span>• Timestamp:</span>  {anomaly.Timestamp}</p>
-                          <p><span>• Event Duration:</span>  {anomaly.EventDuration}</p>
-                          <p><span>• Location:</span>  {anomaly.Location}</p>
-                          <p><span>• Threat Level:</span> <span style={getColor(anomaly.ThreatLevel)}>{anomaly.ThreatLevel}</span> </p>
-                        </div>
-
-                        <div className="buttons">
-                          <button className='primary-button anomaly-report-btn' >Generate Report</button>
-                          <button className='border-button download-video-btn' >Download Video</button>
-                        </div>
+                    <div key={index} className="card anomaly-card" >
+                      <h4>ID: {anomaly.id}</h4>
+                      <div className="anomaly-card-description">
+                        <h6 >Description</h6>
+                        <p><span>• Anomaly Type:</span>  {anomaly.AnomalyType}</p>
+                        <p><span>• Timestamp:</span>  {anomaly.Timestamp}</p>
+                        <p><span>• Event Duration:</span>  {anomaly.EventDuration}</p>
+                        <p><span>• Location:</span>  {anomaly.Location}</p>
+                        <p><span>• Threat Level:</span> <span style={getColor(anomaly.ThreatLevel)}>{anomaly.ThreatLevel}</span> </p>
                       </div>
-                    </>
+
+                      <div className="buttons">
+                        <button className='primary-button anomaly-report-btn' >Generate Report</button>
+                        <button className='border-button download-video-btn' >Download Video</button>
+                      </div>
+                    </div>
                   ))
                   :
                   (
@@ -225,13 +236,13 @@ const EventsPage = ({ user }) => {
 
         <div className="pagination-btns">
           <button disabled={true}>
-            <i className="fa-solid fa-backward"></i>
+            Prev
           </button>
 
           <span className='page-number-btn'>1/10</span>
 
           <button>
-            <i className="fa-solid fa-forward"></i>
+            Next
           </button>
 
           <div className="search-page">
@@ -246,7 +257,7 @@ const EventsPage = ({ user }) => {
                 borderRadius: 6
               }} type="text" placeholder='Go to page...' />
               <button style={{
-                border: "1px solid #656e79",
+                border: "1px solid var(--border-color)",
                 padding: "5px 10px",
                 fontSize: 14,
                 marginLeft: 5

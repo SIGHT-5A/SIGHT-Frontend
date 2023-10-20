@@ -13,8 +13,8 @@ const Dashboard = () => {
                         <NavLink to='/home/events'><li>Events</li></NavLink>
                     </div>
                     <div className='dashboard-nav-list'>
-                        <NavLink to='/home/live'><li>Analyzer</li></NavLink>
-                        <NavLink to='/home/analyzer'><li>Monitor</li></NavLink>
+                        <NavLink to='/home/analyzer'><li>Analyzer</li></NavLink>
+                        {/* <NavLink to='/home/live'><li>Monitor</li></NavLink> */}
                     </div>
                 </ul>
             </div>

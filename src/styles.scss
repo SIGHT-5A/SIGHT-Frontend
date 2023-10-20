@@ -13,11 +13,11 @@
     --light-white: #fdfdfd;
     --black: #000;
     --grey: #888;
-    --blue: #346aff;
+    --blue: #1f6feb;
     --green: #00C852;
     --red: #FF5045;
     --orange: #FFB545;
-    --hover-color: #4c7cff;
+    --hover-color: #175abf;
     --border-color: #30363d;
 }
 
@@ -76,7 +76,7 @@ img {
     background: var(--card-color);
     color: var(--white);
     border: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 30px rgba(0, 0, 0, 1);
 }
 
 .pagination-btns {
@@ -88,20 +88,20 @@ img {
 }
 
 .pagination-btns button {
-    // background-color: var(--blue);
-    background-color: transparent;
+    background-color: #21262d;
     /* Change this to your desired background color */
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 8px 12px;
+    padding: 5px 12px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    border: 1px solid var(--border-color);
 
     /* Disable button styles */
     &:disabled {
-        background-color: transparent;
+        background-color: #21262d;
         cursor: not-allowed;
         color: var(--grey);
     }
@@ -122,4 +122,12 @@ img {
 .pagination-btns button:not(:disabled):hover {
     transition: all 0.2s ease;
     color: var(--blue);
+}
+
+@media (max-width: 500px) {
+    .pagination-btns {
+        gap: 5px;
+        padding: 10px 0;
+        font-size: 12px;
+    }
 }

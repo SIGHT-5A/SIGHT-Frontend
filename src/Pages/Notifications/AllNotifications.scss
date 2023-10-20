@@ -1,4 +1,50 @@
-.all-notification-container{
+.all-notification-container {
     width: 100vw;
-    height: 100vh;
+
+    .notification-container {
+        margin-bottom: 0px;
+        padding: 20px 40px 0 40px;
+        width: 100%;
+
+        .notificationBox {
+            background: #0d1116;
+
+            .box-title {
+                background: var(--card-color);
+                border-radius: 6px;
+                padding: 1rem;
+            }
+        }
+
+        .notifications {
+            height: 82%;
+
+            .no-notification {
+                background: var(--bg-color);
+                color: var(--grey);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .all-notification-container {
+        width: 100vw;
+
+        .notification-container {
+            margin-bottom: 80px;
+            padding: 10px 10px 0 10px;
+
+        }
+    }
 }

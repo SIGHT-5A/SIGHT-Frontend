@@ -15,7 +15,7 @@
             height: 100%;
 
             input {
-                width: 100%;
+                width: 95%;
                 height: 100%;
                 padding: 9px 12px;
                 font-size: 15px;
@@ -181,6 +181,43 @@
 
         .anomaly-card {
             width: calc(100%);
+
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+
+                .anomaly-report-btn {
+                    padding: 8px;
+                    width: 48%;
+                }
+
+                .anomaly-report-btn:hover {
+                    background: var(--hover-color);
+                }
+
+                .download-video-btn {
+                    padding: 8px;
+                    width: 48%;
+                }
+
+                .download-video-btn:hover {
+                    background: #151e33;
+                }
+            }
+        }
+
+        .anomaly-card-description {
+            padding: 15px;
+            margin-top: 10px;
+            background: var(--bg-color);
+            border-radius: 10px;
+            font-size: 14px;
+
+            p {
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 }

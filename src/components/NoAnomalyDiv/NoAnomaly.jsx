@@ -4,7 +4,7 @@ import './NoAnomaly.scss'
 const NoAnomaly = () => {
     return (
         <div className='no-anomaly'>
-            <p>No Anomaly Detected Yet</p>
+            <p>No Analysis Data Found!</p>
         </div>
     )
 }
