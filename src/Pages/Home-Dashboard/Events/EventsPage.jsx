@@ -170,7 +170,7 @@ const EventsPage = ({ user }) => {
                   color: 'var(--white)',
                   borderRadius: 6
                 }}
-                type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>
+                type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
             </div>
 
             <div className="drop-downs">
@@ -202,24 +202,22 @@ const EventsPage = ({ user }) => {
                 anomalyData.length
                   ?
                   anomalyData.map((anomaly, index) => (
-                    <>
-                      <div className="card anomaly-card" key={index} >
-                        <h4>ID: {anomaly.id}</h4>
-                        <div className="anomaly-card-description">
-                          <h6 >Description</h6>
-                          <p><span>• Anomaly Type:</span>  {anomaly.AnomalyType}</p>
-                          <p><span>• Timestamp:</span>  {anomaly.Timestamp}</p>
-                          <p><span>• Event Duration:</span>  {anomaly.EventDuration}</p>
-                          <p><span>• Location:</span>  {anomaly.Location}</p>
-                          <p><span>• Threat Level:</span> <span style={getColor(anomaly.ThreatLevel)}>{anomaly.ThreatLevel}</span> </p>
-                        </div>
-
-                        <div className="buttons">
-                          <button className='primary-button anomaly-report-btn' >Generate Report</button>
-                          <button className='border-button download-video-btn' >Download Video</button>
-                        </div>
+                    <div key={index} className="card anomaly-card" >
+                      <h4>ID: {anomaly.id}</h4>
+                      <div className="anomaly-card-description">
+                        <h6 >Description</h6>
+                        <p><span>• Anomaly Type:</span>  {anomaly.AnomalyType}</p>
+                        <p><span>• Timestamp:</span>  {anomaly.Timestamp}</p>
+                        <p><span>• Event Duration:</span>  {anomaly.EventDuration}</p>
+                        <p><span>• Location:</span>  {anomaly.Location}</p>
+                        <p><span>• Threat Level:</span> <span style={getColor(anomaly.ThreatLevel)}>{anomaly.ThreatLevel}</span> </p>
                       </div>
-                    </>
+
+                      <div className="buttons">
+                        <button className='primary-button anomaly-report-btn' >Generate Report</button>
+                        <button className='border-button download-video-btn' >Download Video</button>
+                      </div>
+                    </div>
                   ))
                   :
                   (

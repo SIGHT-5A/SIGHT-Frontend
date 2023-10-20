@@ -219,7 +219,7 @@ const AnalyzerPage = ({ user }) => {
                 fontSize: 18,
                 marginBottom: 20,
               }}
-            > <i class="fa-regular fa-file-lines"></i> &nbsp; Analyze New Anomaly
+            > <i className="fa-regular fa-file-lines"></i> &nbsp; Analyze New Anomaly
             </h3>
 
             <div className="upload-container card">
@@ -261,7 +261,7 @@ const AnalyzerPage = ({ user }) => {
                 marginBottom: 20,
                 marginTop: 50
               }}
-            > <i class="fa-regular fa-file-lines"></i> &nbsp; Previous Reports
+            > <i className="fa-regular fa-file-lines"></i> &nbsp; Previous Reports
             </h3>
 
             <div className='search-bar'>
@@ -275,7 +275,7 @@ const AnalyzerPage = ({ user }) => {
                     color: 'var(--white)',
                     borderRadius: 6
                   }}
-                  type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>
+                  type='submit'><i className="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
 
@@ -286,13 +286,13 @@ const AnalyzerPage = ({ user }) => {
                   {
                     analysisHistory.map((analysis, id) => (
                       <div key={id} className="analysis-repo">
-                        <p className='video-name'><i class="fa-solid fa-file-video"></i> &nbsp; {analysis.video}</p>
+                        <p className='video-name'><i className="fa-solid fa-file-video"></i> &nbsp; {analysis.video}</p>
                         <p className='video-description'>{analysis.description}</p>
                         <p className='uploaded-on'>Uploaded On: {analysis.TimeStamp}</p>
 
                         <div className="button-container">
                           <button className='view-analysis-button' onClick={() => handleAnomalyClick(analysis)}>View</button>
-                          <button className='delete-analysis-button'><i class="fa-solid fa-trash"></i>Delete</ button>
+                          <button className='delete-analysis-button'><i className="fa-solid fa-trash"></i>Delete</ button>
                         </div>
 
                       </div>
